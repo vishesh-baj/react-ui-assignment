@@ -1,26 +1,28 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = [
-  {
-    name: "dummy user name",
-    email: "dummyEmail@gmail.com",
-    username: "dummyUsername",
-    mobile: "dummyMobileNumber",
-    roleKey: "dummyRoleKey",
-    password: "dummyPassword",
-  },
-];
-
+const initialState = {
+  usersList: [
+    {
+      name: "testName",
+      email: "testEmail@ReportGmailerrorred.com",
+      username: "testUserName",
+      mobile: "0000000000",
+      roleKey: "testRoleKey",
+      password: "testPassword",
+    },
+  ],
+};
 const UserListingSlice = createSlice({
-  name: "user-listing",
+  name: "user-list",
   initialState,
   reducers: {
-    addUser: (state, action) => {},
-    editUser: (state, action) => {},
+    addUser: (state, action) => {
+      state.usersList.push(action.payload);
+    },
     deleteUser: (state, action) => {},
+    editUser: (state, action) => {},
   },
 });
 
 export const { addUser, deleteUser, editUser } = UserListingSlice.actions;
-
 export default UserListingSlice.reducer;

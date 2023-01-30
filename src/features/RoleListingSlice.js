@@ -1,24 +1,25 @@
-const { createSlice } = require("@reduxjs/toolkit");
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  roles: [
+  rolesList: [
     {
-      roleLabel: "role label",
-      roleKey: "role key",
+      roleLabel: "testLabel",
+      roleKey: "testRoleKey",
     },
   ],
 };
 
 const RoleListingSlice = createSlice({
-  name: "role-slice",
+  name: "roles-list",
   initialState,
   reducers: {
-    addRole: (state, action) => {},
-    editRole: (state, action) => {},
+    addRole: (state, action) => {
+      state = state.rolesList.push(action.payload);
+    },
     deleteRole: (state, action) => {},
+    editRole: (state, action) => {},
   },
 });
 
 export const { addRole, deleteRole, editRole } = RoleListingSlice.actions;
-
 export default RoleListingSlice.reducer;
