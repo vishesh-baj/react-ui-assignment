@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-
 const initialState = {
   usersList: [
     {
@@ -12,6 +11,7 @@ const initialState = {
     },
   ],
 };
+
 const UserListingSlice = createSlice({
   name: "user-list",
   initialState,

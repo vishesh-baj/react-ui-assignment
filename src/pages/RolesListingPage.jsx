@@ -1,27 +1,33 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
 import Table from "../components/Table";
 
+// roles listing page specific to the component hgeirarchy of the styled
 const RolesListingPage = () => {
   const roles = useSelector((state) => {
-    state.roles.rolesList;
+    return state.roles.rolesList;
   });
-  console.log(roles);
-
   return (
     <main className="w-screen h-screen bg-base-300">
       <nav className="w-full h-auto p-4 bg-base-100 flex justify-between">
-        <div>Assignment</div>
+        {/* task details are specific to thge task selected by the user
+         */}
+        <div>TASK</div>
         <div className="flex gap-4">
-          <h1>User List</h1>
-          <h1>Role List</h1>
+          <NavLink to="/user-list"> User List</NavLink>
+          <NavLink to="/role-list">Role List</NavLink>
         </div>
       </nav>
-      <div className="flex justify-center p-8">
-        <h1>Role List</h1>
-        <Table rows={roles} />
+      <div className="flex flex-col justify-center p-8">
+        <h1>User List</h1>
+        <div className="flex justify-end mb-5">
+          <button className="btn btn-primary">Add Users</button>
+        </div>
+        <Table rows={roles} tableType="users" />
       </div>
     </main>
   );
 };
+
 export default RolesListingPage;
